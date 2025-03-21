@@ -6,9 +6,9 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="text-center mb-12">
-        <div className="relative w-full max-w-2xl mx-auto mb-8">
+        <div className="relative w-full max-w-md mx-auto mb-8">
           <img
-            src="/image.svg"
+            src="/globe.svg"
             alt="Strata Management"
             className="w-full h-auto rounded-lg shadow-lg"
           />

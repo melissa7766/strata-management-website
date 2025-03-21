@@ -6,11 +6,10 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="text-center mb-12">
-        <div className="relative w-full max-w-2xl mx-auto mb-8">
-          <img
-            src="/image.svg"
-            alt="Strata Management"
-            className="w-full h-auto rounded-lg shadow-lg"
+        <div className="relative w-full h-64 mb-8 rounded-lg overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: 'url("/image.svg")' }}
           />
         </div>
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Strata Manager</h1>

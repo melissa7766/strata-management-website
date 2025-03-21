@@ -15,6 +15,8 @@ export default function Home() {
             height={400}
             className="rounded-lg shadow-lg"
             priority
+            unoptimized
+            quality={100}
           />
         </div>
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Strata Manager</h1>

@@ -39,12 +39,10 @@ export default function Home() {
         {/* Maintenance Card */}
         <Link href="/maintenance" className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
           <div className="text-center">
-            <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 overflow-hidden">
-              <img
-                src="/image.svg"
-                alt="Maintenance"
-                className="w-full h-full object-contain"
-              />
+            <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Maintenance</h2>
             <p className="text-gray-600">Track repairs and scheduled maintenance</p>

@@ -9,13 +9,12 @@ export default function Home() {
       <div className="text-center mb-12">
         <div className="relative w-full max-w-2xl mx-auto mb-8">
           <Image
-            src="/image.jpg"
+            src="/globe.svg"
             alt="Strata Management"
             width={800}
             height={400}
             className="rounded-lg shadow-lg"
             priority
-            unoptimized
           />
         </div>
         <h1 className="text-4xl font-bold text-gray-900 mb-4">Strata Manager</h1>

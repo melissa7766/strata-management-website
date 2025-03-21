@@ -9,13 +9,12 @@ export default function Home() {
       <div className="text-center mb-12">
         <div className="relative w-full max-w-2xl mx-auto mb-8">
           <Image
-            src="/Image.png"
+            src="/image.jpg"
             alt="Strata Management"
             width={800}
             height={400}
             className="rounded-lg shadow-lg"
             priority
-            unoptimized
             quality={100}
           />
         </div>

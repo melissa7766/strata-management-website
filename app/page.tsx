@@ -8,7 +8,7 @@ export default function Home() {
       <div className="text-center mb-12">
         <div className="relative w-full max-w-md mx-auto mb-8">
           <img
-            src="/globe.svg"
+            src="/Tools--Streamline-Guidance-Free.svg"
             alt="Strata Management"
             className="w-full h-auto rounded-lg shadow-lg"
           />

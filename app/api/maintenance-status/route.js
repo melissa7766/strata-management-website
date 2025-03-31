@@ -1,56 +1,51 @@
-import { NextResponse } from 'next/server';
-
 export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
     const lotNumber = searchParams.get('lotNumber');
 
-    // Mock maintenance data (in a real app, this would come from a database)
-    const maintenanceData = {
+    if (!lotNumber) {
+      return new Response(JSON.stringify({ error: 'Lot number is required' }), {
+        status: 400,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+      });
+    }
+
+    // Mock data for demonstration
+    const mockData = {
       lotNumber,
-      status: {
-        lastInspection: new Date().toISOString(),
-        nextInspection: new Date(new Date().setMonth(new Date().getMonth() + 3)).toISOString(),
-        issues: [
-          {
-            id: 1,
-            type: 'Plumbing',
-            status: 'Pending',
-            priority: 'Medium',
-            reportedDate: new Date().toISOString(),
-            description: 'Leaking faucet in bathroom'
-          },
-          {
-            id: 2,
-            type: 'Electrical',
-            status: 'In Progress',
-            priority: 'High',
-            reportedDate: new Date(new Date().setDate(new Date().getDate() - 2)).toISOString(),
-            description: 'Flickering lights in living room'
-          }
-        ],
-        maintenanceHistory: [
-          {
-            id: 1,
-            type: 'General',
-            date: new Date(new Date().setMonth(new Date().getMonth() - 1)).toISOString(),
-            description: 'Regular cleaning and inspection',
-            status: 'Completed'
-          }
-        ]
-      }
+      status: 'Up to date',
+      lastInspection: '2024-03-15',
+      nextMaintenance: '2024-04-15',
+      maintenanceHistory: [
+        {
+          date: '2024-03-15',
+          type: 'Regular Inspection',
+          status: 'Completed',
+          notes: 'All systems functioning normally'
+        }
+      ]
     };
 
-    return NextResponse.json({
-      success: true,
-      data: maintenanceData
+    return new Response(JSON.stringify(mockData), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
     });
   } catch (error) {
-    return NextResponse.json(
-      { success: false, error: 'Failed to fetch maintenance status' },
-      { status: 400 }
-    );
+    return new Response(JSON.stringify({ error: 'Internal server error' }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
   }
 } 

@@ -1,5 +1,4 @@
 export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
 
 export async function GET(request) {
   try {
@@ -16,29 +15,40 @@ export async function GET(request) {
       });
     }
 
-    // Mock data for demonstration
-    const mockData = {
+    // Mock insurance data
+    const insuranceData = {
       lotNumber,
-      provider: 'Strata Insurance Co',
-      policyNumber: 'POL123456',
-      coverageAmount: 500000,
-      policyPeriod: {
-        start: '2024-01-01',
-        end: '2024-12-31'
-      },
-      premium: 2500,
-      claims: [
-        {
-          id: 'CLM001',
-          date: '2024-02-15',
-          type: 'Water Damage',
-          status: 'Settled',
-          amount: 5000
+      coverage: {
+        policyNumber: 'POL-2024-001',
+        provider: 'Secure Insurance Co.',
+        startDate: new Date().toISOString(),
+        endDate: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString(),
+        coverage: {
+          building: 500000,
+          contents: 100000,
+          publicLiability: 2000000
+        },
+        claims: [
+          {
+            id: 1,
+            type: 'Storm Damage',
+            date: new Date(new Date().setMonth(new Date().getMonth() - 2)).toISOString(),
+            status: 'Settled',
+            amount: 5000
+          }
+        ],
+        premium: {
+          amount: 1200,
+          frequency: 'Annual',
+          nextPayment: new Date(new Date().setMonth(new Date().getMonth() + 11)).toISOString()
         }
-      ]
+      }
     };
 
-    return new Response(JSON.stringify(mockData), {
+    return new Response(JSON.stringify({
+      success: true,
+      data: insuranceData
+    }), {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
@@ -46,8 +56,11 @@ export async function GET(request) {
       },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: 'Internal server error' }), {
-      status: 500,
+    return new Response(JSON.stringify({ 
+      success: false, 
+      error: 'Failed to fetch insurance coverage' 
+    }), {
+      status: 400,
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',

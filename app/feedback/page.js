@@ -33,17 +33,42 @@ export default function Feedback() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Feedback Form</h1>
-          <p className="text-gray-600 mb-8">Share your thoughts with us</p>
+    <div style={{ 
+      minHeight: '100vh', 
+      padding: '2rem', 
+      backgroundColor: '#f9fafb' 
+    }}>
+      <div style={{ 
+        maxWidth: '28rem', 
+        margin: '0 auto' 
+      }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <h1 style={{ 
+            fontSize: '1.875rem', 
+            fontWeight: 'bold', 
+            color: '#111827',
+            marginBottom: '1rem'
+          }}>
+            Feedback Form
+          </h1>
+          <p style={{ color: '#4b5563' }}>Share your thoughts with us</p>
         </div>
 
-        <div className="bg-white shadow-md rounded-lg p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div style={{ 
+          backgroundColor: 'white', 
+          padding: '2rem', 
+          borderRadius: '0.5rem',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+        }}>
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="name" style={{ 
+                display: 'block', 
+                fontSize: '0.875rem', 
+                fontWeight: '500', 
+                color: '#374151',
+                marginBottom: '0.5rem'
+              }}>
                 Name
               </label>
               <input
@@ -53,12 +78,24 @@ export default function Feedback() {
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                style={{
+                  width: '100%',
+                  padding: '0.5rem',
+                  borderRadius: '0.375rem',
+                  border: '1px solid #d1d5db',
+                  fontSize: '1rem'
+                }}
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" style={{ 
+                display: 'block', 
+                fontSize: '0.875rem', 
+                fontWeight: '500', 
+                color: '#374151',
+                marginBottom: '0.5rem'
+              }}>
                 Email
               </label>
               <input
@@ -68,12 +105,24 @@ export default function Feedback() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                style={{
+                  width: '100%',
+                  padding: '0.5rem',
+                  borderRadius: '0.375rem',
+                  border: '1px solid #d1d5db',
+                  fontSize: '1rem'
+                }}
               />
             </div>
 
             <div>
-              <label htmlFor="feedback" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="feedback" style={{ 
+                display: 'block', 
+                fontSize: '0.875rem', 
+                fontWeight: '500', 
+                color: '#374151',
+                marginBottom: '0.5rem'
+              }}>
                 Feedback
               </label>
               <textarea
@@ -83,21 +132,40 @@ export default function Feedback() {
                 rows={4}
                 value={formData.feedback}
                 onChange={(e) => setFormData({ ...formData, feedback: e.target.value })}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                style={{
+                  width: '100%',
+                  padding: '0.5rem',
+                  borderRadius: '0.375rem',
+                  border: '1px solid #d1d5db',
+                  fontSize: '1rem'
+                }}
               />
             </div>
 
             {message && (
-              <div className={`p-4 rounded-md ${
-                message.includes('Thank you') ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
-              }`}>
+              <div style={{ 
+                padding: '1rem',
+                borderRadius: '0.375rem',
+                backgroundColor: message.includes('Thank you') ? '#ecfdf5' : '#fef2f2',
+                color: message.includes('Thank you') ? '#065f46' : '#991b1b'
+              }}>
                 {message}
               </div>
             )}
 
             <button
               type="submit"
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              style={{
+                width: '100%',
+                padding: '0.5rem 1rem',
+                backgroundColor: '#2563eb',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0.375rem',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                cursor: 'pointer'
+              }}
             >
               Submit Feedback
             </button>

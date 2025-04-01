@@ -27,7 +27,7 @@ export default function Feedback() {
       } else {
         setMessage('Something went wrong. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setMessage('Error submitting feedback. Please try again.');
     }
   };

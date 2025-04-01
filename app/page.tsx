@@ -1,15 +1,18 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="text-center mb-12">
         <div className="relative w-full max-w-md mx-auto mb-8">
-          <img
+          <Image
             src="/image.svg"
             alt="Strata Management"
+            width={500}
+            height={300}
             className="w-full h-auto rounded-lg shadow-lg"
           />
         </div>
